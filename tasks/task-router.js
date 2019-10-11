@@ -4,7 +4,8 @@ const router = express.Router();
 
 const TaskModel = require('./task-model');
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, completed) => {
+    {completed ? 'true' : 'false'}
     TaskModel.get()
     .then(tasks => {
         res.status(200).json(tasks)

@@ -8,10 +8,11 @@ module.exports = {
 function get(){
     return db('tasks')
     .join('projects', 'tasks.project_id', '=', 'projects.id')
-    .select('projects.name', 'tasks.description')
+    .select('projects.name', 'projects.completed', 'tasks.description', 'tasks.completed')
 }
 
 function add(task){
     return db('tasks')
     .insert(task)
+
 }
